@@ -43,17 +43,17 @@ Example 0-4 is considered pass when no error throws. Example 5 is pass when retu
 ## Usage for custom input
 If use range filter,
 
-'''
+```
 python3 run.py -f r
-'''
+```
 
 then enter the range_min and range_max split by comma, then enter the scan as list, enter s would stop, i.e.
 
-'''
+```
 Please enter the range_min and range_max split by comma:0.03, 50        
 Please enter one scan in list form:[1.,2.,3.]
 Please enter one scan in list form:s
-'''
+```
 
 If use median filter,
 
@@ -63,12 +63,12 @@ python3 run.py -f m
 
 then enter D, i.e.
 
-'''
+```
 Please enter the number D:2
 please enter one scan in list form:[1.,2.,3.]
 please enter one scan in list form:[2.,3.,4.]
 please enter one scan in list form:s
-'''
+```
 
 The result would be print out.
 
