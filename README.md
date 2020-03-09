@@ -1,7 +1,7 @@
 # Lidar filters
 Python 3 implementation of range filter and temporal median filter for Lidar scans input
 ## Methods
-Two different implementations are applied to solve the problem. One use purely Python build-in functions and libraries (bisect, math), the other one use Numpy library. The space complexity for the second method would be better since Numpy data structures take up less space. However, for the midian filter, the first method has better time complexity than the second one since it maintains the sorted list, compared with sorting the list in each update step.
+Two different implementations **filter.py**, **filter_withnp.py** are applied to solve the problem. One use purely Python build-in functions and libraries (bisect, math), the other one use Numpy library. The space complexity for the second method would be better since Numpy data structures take up less space. However, for the midian filter, the first method has better time complexity than the second one since it maintains the sorted list, compared with sorting the list in each update step.
 ### Range filter
 #### Method 1.
 For each scan input, use for-loop to check each element. If the element value is larger than range_max, then set the value to range_max; If the element value is smaller than range_min, then set the value to range_min; If the element value is Inf, -Inf or NaN, then throw an assertion error.
@@ -41,6 +41,8 @@ There are 6 test examples, where example 1 is the base case, if not mention othe
 
 Example 0-4 is considered pass when no error throws. Example 5 is pass when return []. Example 6 is pass when throw assertion error that the scan contains Inf or NaN. Example 7 is pass when throw assertion error that the scan shape changes.
 ## Usage for custom input
+Only the code for method 1 is given. To use method 2, comment the first line and uncomment the second line of run.py.
+
 If use range filter,
 ```
 python3 run.py -f r
