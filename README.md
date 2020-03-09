@@ -35,11 +35,11 @@ There are 6 test examples, where example 1 is the base case, if not mention othe
 * example 2 (super values): measurements are from (-1e^5, range_max+1e^5)
 * example 3 (large N): N = 1000
 * example 4 (large D): N = 1000, D = 800, number of scans = 500
-* example 5 (empty scan): scan = []
-* example 6 (Inf/NaN values): scan = [1, 2, NaN, Inf, NaN]
+* example 5 (empty scan): scan = [ ]
+* example 6 (Inf/NaN values): scan = [1, 2, NaN, Inf, -Inf]
 * example 7 (shape changes): scan shape changes i.e. scan1 = [0, 1, 2, 1, 3], scan2 = [1, 2, 1, 3]
 
-Example 0-4 is considered pass when no error throws. Example 5 is pass when return []. Example 6 is pass when throw assertion error that the scan contains Inf or NaN. Example 7 is pass when throw assertion error that the scan shape changes.
+Example 0-4 is considered pass when no error throws. Example 5 is pass when return [ ]. Example 6 is pass when throw assertion error that the scan contains Inf or NaN. Example 7 is pass when throw assertion error that the scan shape changes.
 ## Usage for custom input
 Only the code for method 1 is given. To use method 2, comment the first line and uncomment the second line of run.py.
 
