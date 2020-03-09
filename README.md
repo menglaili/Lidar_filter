@@ -31,21 +31,24 @@ python3 test.py
 
 There are 6 test examples, where example 1 is the base case, if not mention other conditions it means same with this one:
 * example 0: same with the example given in the description
-* example 1 (base case): N = 100, number of scans = 10, range_max = .03, range_min = 50, D = 10, 20% measurements are selected from *U* ~ (0, range_min), 20% are from *U* ~ (range_max, range_max+20), 60% are from *U* ~ (range_min, range_max)
-* example 2 (super large/small values): 20% measurements are selected from *U* ~ (-1e^5, 0), 20% are from *U* ~ (range_max, range_max+1e^5)
+* example 1 (base case): N = 100, number of scans = 10, range_max = .03, range_min = 50, D = 10, measurements are ranged from (0, range_max+20)
+* example 2 (super values): measurements are from (-1e^5, range_max+1e^5)
 * example 3 (large N): N = 1000
 * example 4 (large D): N = 1000, D = 800, number of scans = 500
 * example 5 (empty scan): scan = []
-* example 6 (Inf, NaN values): scan = [1, 2, NaN, Inf, NaN]
-* example 7 (scan shape changes): scan shape changes i.e. scan1 = [0, 1, 2, 1, 3], scan2 = [1, 2, 1, 3]
+* example 6 (Inf/NaN values): scan = [1, 2, NaN, Inf, NaN]
+* example 7 (shape changes): scan shape changes i.e. scan1 = [0, 1, 2, 1, 3], scan2 = [1, 2, 1, 3]
 
 Example 0-4 is considered pass when no error throws. Example 5 is pass when return []. Example 6 is pass when throw assertion error that the scan contains Inf or NaN. Example 7 is pass when throw assertion error that the scan shape changes.
 ## Usage for custom input
 If use range filter,
+
 '''
 python3 run.py -f r
 '''
+
 then enter the range_min and range_max split by comma, then enter the scan as list, enter s would stop, i.e.
+
 '''
 Please enter the range_min and range_max split by comma:0.03, 50        
 Please enter one scan in list form:[1.,2.,3.]
@@ -53,15 +56,19 @@ Please enter one scan in list form:s
 '''
 
 If use median filter,
+
 '''
 python3 run.py -f m
 '''
+
 then enter D, i.e.
+
 '''
 Please enter the number D:2
 please enter one scan in list form:[1.,2.,3.]
 please enter one scan in list form:[2.,3.,4.]
 please enter one scan in list form:s
 '''
+
 The result would be print out.
 
