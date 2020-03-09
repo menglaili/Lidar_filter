@@ -25,9 +25,9 @@ Time complexity is *O(DNlogD)* since in each update step, each column needs to b
 ## Running test examples
 Only the code for testing method 1 is given. To test method 2, comment the first line and uncomment the second line of test.py.
 
-'''
+```
 python3 test.py
-'''
+```
 
 There are 6 test examples, where example 1 is the base case, if not mention other conditions it means same with this one:
 * example 0: same with the example given in the description
