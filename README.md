@@ -49,6 +49,7 @@ then enter the range_min and range_max split by comma, then enter the scan as li
 ```
 Please enter the range_min and range_max split by comma:0.03, 50        
 Please enter one scan in list form:[1.,2.,3.]
+[1.0, 2.0, 3.0]
 Please enter one scan in list form:s
 ```
 If use median filter,
@@ -59,8 +60,9 @@ then enter D, i.e.
 ```
 Please enter the number D:2
 please enter one scan in list form:[1.,2.,3.]
+[1.0, 2.0, 3.0]
 please enter one scan in list form:[2.,3.,4.]
+[1.5, 2.5, 3.5]
 please enter one scan in list form:s
 ```
-The result would be print out.
 
