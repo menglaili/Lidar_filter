@@ -13,9 +13,9 @@ Use vectorization of Numpy array. Create two 1D boolean maskes for finding out i
 Time complexity is *O(N)*
 ### Temporal median filter
 #### Method 1.
-The bisect.insort function can insert element to a list while maintaining the sorted order of it. For a N-dimensional scan, a list of N lists L1 are created. For each update step, insert each element of the new scan to its corresponding list using bisect.insort i.e. receive scan = [1,2,3], L1 changes from [[0],[1],[2]] to [[0,1],[1,2],[2,3]]. For each dimension, given the sorted list, the median is the middle value if N is odd, or the average of two middle values if N is even. 
+The bisect.insort function can insert element to a list while maintaining the sorted order of it. For a N-dimensional scan, a list of N lists L1 are created. For each update step, insert each element of the new scan to its corresponding list using bisect.insort i.e. *receive scan = [1,2,3], L1 changes from [[0],[1],[2]] to [[0,1],[1,2],[2,3]]*. For each dimension, given the sorted list, the median is the middle value if N is odd, or the average of two middle values if N is even. 
 
-Create another list of N lists L2 to store every scan since the first one. If no more than D scans are received, compute the median of each list in L1 and return them as a new list. If D scans are received, then pop out the first element in each of the N lists in L2, i.e. D = 1, receive scan = [2,3,4], L2 changes from [[0,1],[1,2],[2,3]] to [[1,2],[2,3],[3,4]], pop out 0,1,2 from corresponding lists; Remove the poped element from corresponding list in L1 and the sorted order won't break; Compute the median of each list in L1 and return them as a new list.
+Create another list of N lists L2 to store every scan since the first one. If no more than D scans are received, compute the median of each list in L1 and return them as a new list. If D scans are received, then pop out the first element in each of the N lists in L2, i.e. *D = 1, receive scan = [2,3,4], L2 changes from [[0,1],[1,2],[2,3]] to [[1,2],[2,3],[3,4]], pop out 0,1,2 from corresponding lists*; Remove the poped element from corresponding list in L1 and the sorted order won't break; Compute the median of each list in L1 and return them as a new list.
 
 Time complexity is *O(DN)* since insert to a sorted list is *O(D)* and we have to do it for N lists.
 #### Method 2.
@@ -23,7 +23,7 @@ Create a Numpy array L1(one row is one scan) to store the scans store every scan
 
 Time complexity is *O(DNlogD)* since in each update step, each column needs to be sorted in *O(DlogD)* and there are N columns.
 ## Running test examples
-Only the code for testing method 1 is give. To test method 2, comment the first line and uncomment the second line of test.py.
+Only the code for testing method 1 is given. To test method 2, comment the first line and uncomment the second line of test.py.
 
 '''
 python3 test.py
