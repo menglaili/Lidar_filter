@@ -1,7 +1,7 @@
 # Lidar filters
 Python 3 implementation of range filter and temporal median filter for Lidar scans input
 ## Methods
-Two different implementations are applied to solve the problem. One use purely Python build-in functions and libraries (bisect, math), the other one use Numpy library. The space complexity for the second method would be better since Numpy data structures take up less space. However, for the midian filter, the first method has better time complexity than the second one since it maintains the sorted list, not sorts the list in each update step.
+Two different implementations are applied to solve the problem. One use purely Python build-in functions and libraries (bisect, math), the other one use Numpy library. The space complexity for the second method would be better since Numpy data structures take up less space. However, for the midian filter, the first method has better time complexity than the second one since it maintains the sorted list, compared with sorting the list in each update step.
 ### Range filter
 #### Method 1.
 For each scan input, use for-loop to check each element. If the element value is larger than range_max, then set the value to range_max; If the element value is smaller than range_min, then set the value to range_min; If the element value is Inf, -Inf or NaN, then throw an assertion error.
@@ -17,11 +17,11 @@ The bisect.insort function can insert element to a list while maintaining the so
 
 Create another list of N lists L2 to store every scan since the first one. If no more than D scans are received, compute the median of each list in L1 and return them as a new list. If D scans are received, then pop out the first element in each of the N lists in L2, i.e. D = 1, receive scan = [2,3,4], L2 changes from [[0,1],[1,2],[2,3]] to [[1,2],[2,3],[3,4]], pop out 0,1,2 from corresponding lists; Remove the poped element from corresponding list in L1 and the sorted order won't break; Compute the median of each list in L1 and return them as a new list.
 
-Time complexity is *O(DN)* since insert to a sorted list is O(D) and we have to do it for N lists.
+Time complexity is *O(DN)* since insert to a sorted list is *O(D)* and we have to do it for N lists.
 #### Method 2.
 Create a Numpy array L1(one row is one scan) to store the scans store every scan since the first one. If no more than D scans are received, compute the median of each column of L1 using np.median and return them as a new list. If D scans are received, then delete the first row of L1, compute the median of each column of the remaining L1.
 
-Time complexity is *O(DNlogD)* since in each update step, each column needs to be sorted in O(DlogD) and there are N columns.
+Time complexity is *O(DNlogD)* since in each update step, each column needs to be sorted in *O(DlogD)* and there are N columns.
 ## Running test examples
 Only the code for testing method 1 is give. To test method 2, comment the first line and uncomment the second line of test.py.
 
